@@ -1,0 +1,435 @@
+
+body {
+	background-color: rgb(211, 209, 209);
+}
+
+.list, .status {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.list {
+	margin-right: 30px;
+	width: 70%;
+}
+
+.status {
+	margin-left: 30px;
+	width: 30%;
+}
+
+.main {
+	display: flex;
+    margin: 0px auto;
+	padding-top: 5px;
+	width: 1175px;
+}
+
+hr {
+	width: 100%;
+}
+
+.item {
+	display: flex;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	align-items: center;
+	justify-content: space-between;
+	flex: 1;
+}
+
+.search {
+	display: flex;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	flex: 1;
+}
+
+.search input {
+	width: 80%;
+	height: 33px;
+	padding: 8px;
+	border-radius: 5px 0px 0px 5px;
+	border-width: thin;
+}
+
+::placeholder {
+	font-size: medium;
+}
+
+.search button {
+	width: 20%;
+	height: 50.34px;
+	position: relative;
+	border-radius: 0px 5px 5px 0px;
+	border-width: 0px;
+	border-bottom: 5px solid rgb(43, 88, 193);
+	background-color: rgb(58, 125, 211);
+	color: white;
+	font-size: 18px;
+}
+
+.search button:hover{
+	background-color: rgb(36, 112, 211);
+	cursor: pointer;
+}
+
+.search button:active{
+	border-width: thin;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+	width: 120px;
+	height: 30px;
+	border: none; 
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 20px;
+}
+
+.name:focus {
+	outline-color: rgb(92, 147, 203);
+}
+
+.add {
+	display: flex;
+}
+
+.amount {
+	padding: 8px;
+	margin: 2px;
+	width: 20px;
+	height: 20px;
+	background-color:  rgb(226, 223, 223);
+	border-radius: 5px;
+	text-align: center;
+	color:rgb(85, 92, 104);
+}
+
+.plus, .minus {
+	margin: 2px;
+	height: 40px;
+	width: 40px;
+	border-width: 0px;
+	border-radius: 50%;
+	color: white;
+	text-align: center;
+	font-size: medium;
+	
+}
+
+.plus {
+	background-color: rgb(42, 201, 61);
+	border-bottom: 5px solid rgb(56, 161, 33);
+}
+
+.minus {
+	background-color: rgb(208, 62, 62);
+	border-bottom: 5px solid rgb(179, 37, 37);
+}
+
+.plus:hover{
+	background-color:rgb(24, 176, 42);
+	cursor: pointer;
+}
+
+.plus:active{
+	border-width: thin;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.minus:hover{
+	background-color: rgb(183, 43, 43);
+	cursor: pointer;
+}
+
+.minus:active{
+	border-width: thin;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.buy {
+	display: flex;
+	width: 170px;
+	justify-content: end;
+}
+
+.state {
+	height: 36px;
+	width: 130px;
+	font-size: 16px;
+	border-radius: 5px;
+	border-width: 0px;
+	border-bottom: 5px solid rgb(204, 202, 202);
+	background-color: rgb(226, 223, 223);
+	color: rgb(85, 92, 104);
+}
+
+.state:hover{
+	background-color:rgb(212, 209, 209);
+	cursor: pointer;
+}
+
+.state:active{
+	border-width: thin;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.cross {
+	margin-left: 5px;
+	width: 36px;
+	height: 36px;
+	border-radius: 5px;
+	background-color: rgb(208, 62, 62);
+	border-width: 0px;
+	border-bottom: 5px solid rgb(179, 37, 37);
+	color: white;
+	font-size: medium;
+
+}
+
+.cross:hover{
+	background-color: rgb(183, 43, 43);
+	cursor: pointer;
+}
+
+.cross:active{
+	border-width: thin;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+.status section {
+	display: flex;
+	margin: 5px 7px;
+	padding: 10px;
+}
+
+.label {
+	font-size: 25px;
+}
+
+.good {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+	font-size: 14px;
+	margin: 3px;
+	padding: 7px;
+	border-radius: 5px;
+	color: rgb(85, 92, 104);
+	background-color:rgb(226, 223, 223);
+}
+
+.number {
+	/* display: flex;
+	align-items: center;
+	justify-content: center; */
+	padding: 5px;
+	height: 15px;
+	width: 15px;
+	margin-left: 3px;
+	border-radius: 50%;
+	background-color: rgb(235, 159, 28);
+	text-align: center;
+	color: white;
+}
+
+.minus, .plus, .search button, .amount, .state, .cross, .label, .good {
+	font-family: Arial, sans-serif;
+  	font-weight: bold;
+}
+
+.badge {
+	padding: 10px;
+	width: 150px;
+	height: 80px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	background-color: #af01da;
+	font-family: Arial, sans-serif;
+	color: white;
+	position: fixed;
+	bottom: -50px;
+	left: 50px;
+	z-index: 3;
+	transition: 2s;
+}
+
+.badge:hover {
+	background-color: #4d01da;
+	bottom: 0px;
+}
+
+.badge::before {
+	display: block;
+	content: "Buy list";
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.created {
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.author {
+	display: block;
+	font-size: 18px;
+}
+
+button {
+	position: relative;
+}
+
+button::before {
+	padding: 0px 10px;
+	height: 1px;
+	border-radius: 10px;
+	content:attr(data-tooltip);
+	font-size: 12px;
+	background-color: #af01da;
+	color: white;
+	transition: all 1s ease-out;
+	position: absolute;
+	top: -20%;
+	visibility: hidden;
+	/* z-index: -1; */
+	opacity: 0;
+}
+
+.state::before {
+	width: 110px;
+	transform: translateX(-23%);
+}
+
+.tooltip::before {
+	transform: translateX(-15%);
+}
+
+.cross::before {
+	width: 100px;
+	transform: translateX(-50%);
+}
+
+.plus::before, .minus::before {
+	transform: translateX(-45%);
+}
+
+.plus:hover::before, .minus:hover::before {
+	top: -115%;
+}
+
+.search button:hover::before {
+	top: -90%;
+}
+
+.search button::before {
+	width: 100px;
+	transform: translateX(-22%);
+}
+
+button:hover::before{
+	height: 15px;
+	padding: 10px;
+	visibility: visible;
+	/* z-index: 7; */
+	opacity: 1;
+	top: -135%;
+}
+
+.first {
+	justify-content: center;
+}
+
+@media (max-width:1175px){
+	.main {
+		margin: 0px;
+		width: 100%;
+	}
+
+	.status {
+		margin-left: 1vw;
+	}
+
+	.list {
+		margin-right: 1vw;
+	}
+}
+
+@media (max-width:700px){
+	.main {
+		flex-direction: column;
+	}
+
+	.list, .status {
+		width: 94vw;
+		margin: 10px;
+	}
+}
+
+@media (max-width:390px){
+	.main, .list, .status {
+		width: 375px;
+	}
+}
+
+@media (max-width:500px){
+	.item {
+		margin: 0px 5px;
+	}
+
+	.search {
+		margin: 0px 5px;
+	}
+
+	.state {
+		width: 80px;
+		height: 40px;
+	}
+
+	.search button {
+		width: 30%;
+	}
+
+	.search input {
+		width: 70%;
+	}
+
+	.plus, .minus{
+		height: 30px;
+		width: 30px;
+	}
+
+	.amount {
+		width: 15px;
+		height: 15px;
+	}
+
+	.cross {
+		width: 26px;
+		height: 40px;
+	}
+}
+
+@media print{
+	.badge::before{
+		content: "";
+	}
+
+	.badge {
+		border: 1px solid #af01da;
+		background-color: white;
+		color: black;
+		bottom: 0px;
+	}
+}
