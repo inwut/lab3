@@ -25,6 +25,7 @@ body {
 
 .main {
 	display: flex;
+	align-items: start;
     margin: 0px auto;
 	padding-top: 5px;
 	width: 1175px;
@@ -212,6 +213,11 @@ hr {
 	padding: 10px;
 }
 
+.bought, .not-bought {
+	flex-wrap: wrap;
+	min-height: 45px;
+}
+
 .label {
 	font-size: 25px;
 }
@@ -231,8 +237,8 @@ hr {
 
 .number {
 	/* display: flex;
-	align-items: center;
-	justify-content: center; */
+	align-items: center; */
+	justify-content: center;
 	padding: 5px;
 	height: 15px;
 	width: 15px;
@@ -366,7 +372,7 @@ button:hover::before{
 	}
 }
 
-@media (max-width:700px){
+@media (max-width:730px){
 	.main {
 		flex-direction: column;
 	}

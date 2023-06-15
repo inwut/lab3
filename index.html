@@ -13,72 +13,20 @@
 					<input type="text" placeholder="Назва товару"/>
 					<button type="submit" data-tooltip="Додати товар">Додати</button>
 				</section>
-				<hr/>
-				<section class="item">
-					<input class="name" type="text" value="Помідори" style="text-decoration: line-through;"/>
-					<section class="add">
-						<button class="minus" data-tooltip="Зменшити" style="visibility: hidden">-</button>
-						<label class="amount">2</label>
-						<button class="plus" data-tooltip="Збільшити" style="visibility: hidden">+</button>
-					</section>
-					<section class="buy">
-						<button class="state tooltip" data-tooltip="Товар не куплено">Не куплено</button>
-						<button class="cross" data-tooltip="Видалити товар" style="display: none">×</button>
-					</section>
-				</section>
-				<hr/>
-				<section class="item">
-					<input class="name" type="text" value="Печиво"/>
-					<section class="add">
-						<button class="minus" data-tooltip="Зменшити">-</button>
-						<label class="amount">2</label>
-						<button class="plus" data-tooltip="Збільшити">+</button>
-					</section>
-					<section class="buy">
-						<button class="state" data-tooltip="Товар куплено">Куплено</button>
-						<button class="cross" data-tooltip="Видалити товар">×</button>
-					</section>
-				</section>
-				<hr/>
-				<section class="item">
-					<input class="name" type="text" value="Сир"/>
-					<section class="add">
-						<button class="minus" data-tooltip="Зменшити" style="background-color:#ef9f9e; border-bottom-color: #ed9392;">-</button>
-						<label class="amount">1</label>
-						<button class="plus" data-tooltip="Збільшити">+</button>
-					</section>
-					<section class="buy">
-						<button class="state" data-tooltip="Товар куплено">Куплено</button>
-						<button class="cross" data-tooltip="Видалити товар">×</button>
-					</section>
-				</section>
 			</div>
-		
 			<div class="status">
 				<section>
 					<label class="label">Залишилося</label>
 				</section>
 				<hr>
-				<section>
-					<span class="good">
-						Печиво
-						<span class="number">2</span>
-					</span>
-					<span class="good">
-						Сир
-						<span class="number">1</span>
-					</span>
+				<section class="not-bought">
 				</section>
 				<hr>
 				<section>
 					<label class="label">Куплено</label>
 				</section>
 				<hr>
-				<section>
-					<span class="good" style="text-decoration: line-through;">
-						Помідори
-						<span class="number" style="text-decoration: line-through;">2</span>
-					</span>
+				<section class="bought">
 				</section>
 			</div>
 		</section>
@@ -86,5 +34,6 @@
 			<label class="created">Created by:</label>
 			<label class="author">Daria Vetrykush</label>
 		</section>
+		<script src="script.js"></script>
 </body>
 </html>
