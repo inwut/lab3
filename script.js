@@ -4,6 +4,9 @@ if(localStorage.length === 0){
     localStorage.setItem("2;Сир;Не куплено", 1);
 }
 let items = [];
+const leftSection = document.querySelector(".list");
+const notBoughtList = document.querySelector(".not-bought");
+const boughtList = document.querySelector(".bought");
 
 for(let i=0; i<localStorage.length; i++){
     let name = localStorage.key(i);
@@ -39,7 +42,7 @@ function addItem(product, count){
     const sectionElement = document.createElement("section");
     section.appendChild(sectionElement);
     sectionElement.classList.add("item");
-    document.querySelector(".list").appendChild(section);
+    leftSection.appendChild(section);
     const inputField = document.createElement("input");
     inputField.classList.add("name");
     inputField.value = product;
@@ -52,7 +55,7 @@ function addItem(product, count){
     addSection.classList.add("add");
     const minusButton = document.createElement("button");
     minusButton.classList.add("minus");
-    minusButton.innerHTML = "-";
+    minusButton.textContent = "-";
     minusButton.setAttribute("data-tooltip", "Зменшити");
     minusButton.addEventListener("click", () => {reduceItem(sectionElement.querySelector(".add"))});
     if(count == 1){
@@ -63,11 +66,11 @@ function addItem(product, count){
     addSection.appendChild(minusButton);
     const amountLabel = document.createElement("label");
     amountLabel.classList.add("amount");
-    amountLabel.innerHTML = count;
+    amountLabel.textContent = count;
     addSection.appendChild(amountLabel);
     const plusButton = document.createElement("button");
     plusButton.classList.add("plus");
-    plusButton.innerHTML = "+";
+    plusButton.textContent = "+";
     plusButton.setAttribute("data-tooltip", "Збільшити");
     plusButton.addEventListener("click", () => {plusItem(sectionElement.querySelector(".add"))});
     addSection.appendChild(plusButton);
@@ -77,24 +80,24 @@ function addItem(product, count){
     const buyButton = document.createElement("button");
     buyButton.classList.add("state");
     buyButton.setAttribute("data-tooltip", "Товар куплено");
-    buyButton.innerHTML = "Куплено";
+    buyButton.textContent = "Куплено";
     buyButton.addEventListener("click", () => {buyItem(sectionElement)});
     buySection.appendChild(buyButton);
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("cross");
     deleteButton.setAttribute("data-tooltip", "Видалити товар");
-    deleteButton.innerHTML = "×";
+    deleteButton.textContent = "×";
     deleteButton.addEventListener("click", () => {deleteItem(section)});
     buySection.appendChild(deleteButton);
     sectionElement.appendChild(buySection);
     const item = document.createElement("span");
     item.classList.add("good");
-    item.innerHTML = product;
+    item.textContent = product;
     const numberOfItem = document.createElement("span");
     numberOfItem.classList.add("number");
-    numberOfItem.innerHTML = count;
+    numberOfItem.textContent = count;
     item.appendChild(numberOfItem);
-    document.querySelector(".not-bought").appendChild(item);
+    notBoughtList.appendChild(item);
     return sectionElement;
 }
 
@@ -112,7 +115,7 @@ function add() {
     if(input.value.replace(/\s/g, "").length){
         const name = input.value;
         let exist;
-        for(const good of document.querySelectorAll(".list .item .name")){
+        for(const good of leftSection.querySelectorAll(".item .name")){
             if(good.value.toLowerCase() === name.toLowerCase()){
                 if(good.style.textDecoration === ""){
                     plusItem(good.parentElement.querySelector(".add"));
@@ -137,7 +140,7 @@ function add() {
 function changeName(field){
     if(field.value.replace(/\s/g, "").length){
         let exist;
-        for(const good of document.querySelectorAll(".not-bought span")){
+        for(const good of notBoughtList.querySelectorAll("span")){
             if(good.childNodes[0].textContent.toLowerCase() === field.value.toLowerCase()){
                 exist = true;
             }
@@ -145,7 +148,7 @@ function changeName(field){
         if(exist){
             field.value = previousName;
         }else{
-            for(const good of document.querySelectorAll(".not-bought span")){
+            for(const good of notBoughtList.querySelectorAll("span")){
                 if(previousName === good.childNodes[0].textContent){
                     good.childNodes[0].textContent = field.value;
                     for(const item of items){
@@ -166,7 +169,7 @@ function deleteItem(item){
     let name = item.querySelector(".name").value;
     const index = items.indexOf(items.filter((o) => o.name === name)[0]);
     items.splice(index, 1); 
-    for(const good of document.querySelectorAll(".not-bought span")){
+    for(const good of notBoughtList.querySelectorAll("span")){
         if(name === good.childNodes[0].textContent){
             good.remove();
         }
@@ -182,10 +185,10 @@ function reduceItem(amount){
     let name = amount.parentElement.querySelector(".name").value;
     for(const item of items){
         if(item.name === name){
-            item.count = +amount.querySelector(".amount").textContent;
+            item.count = amount.querySelector(".amount").textContent;
         }
     }
-    for(const good of document.querySelectorAll(".not-bought span")){
+    for(const good of notBoughtList.querySelectorAll("span")){
         if(name === good.childNodes[0].textContent){
             good.childNodes[1].textContent = +good.childNodes[1].textContent-1;
         }
@@ -194,17 +197,17 @@ function reduceItem(amount){
 }
 
 function plusItem(amount){
-    amount.querySelector(".amount").innerHTML = +amount.querySelector(".amount").innerHTML + 1;
-    if(+amount.querySelector(".amount").innerHTML === 2){
+    amount.querySelector(".amount").textContent = +amount.querySelector(".amount").textContent + 1;
+    if(+amount.querySelector(".amount").textContent === 2){
         amount.querySelector(".minus").removeAttribute("style");
     }
     let name = amount.parentElement.querySelector(".name").value;
     for(const item of items){
         if(item.name === name){
-            item.count = +amount.querySelector(".amount").textContent;
+            item.count = amount.querySelector(".amount").textContent;
         }
     }
-    for(const good of document.querySelectorAll(".not-bought span")){
+    for(const good of notBoughtList.querySelectorAll("span")){
         if(name === good.childNodes[0].textContent){
             good.childNodes[1].textContent = +good.childNodes[1].textContent+1;
         }
@@ -231,13 +234,13 @@ function buyItem(section){
         }
     }
     let item;
-    for(const good of document.querySelectorAll(".not-bought span")){
+    for(const good of notBoughtList.querySelectorAll("span")){
         if(name === good.childNodes[0].textContent){
             item = good;
             good.remove();
         }
     } 
-    document.querySelector(".status .bought").appendChild(item);
+    boughtList.appendChild(item);
     item.setAttribute("style", "text-decoration: line-through");
     item.querySelector("span").setAttribute("style", "text-decoration: line-through");
 }
@@ -265,13 +268,13 @@ function unbuyItem(section){
         }
     }
     let item;
-    for(const good of document.querySelectorAll(".bought span")){
+    for(const good of boughtList.querySelectorAll("span")){
         if(name === good.childNodes[0].textContent){
             item = good;
             good.remove();
         }
     } 
-    document.querySelector(".status .not-bought").appendChild(item);
+    notBoughtList.appendChild(item);
     item.removeAttribute("style");
     item.querySelector("span").removeAttribute("style");
 }
